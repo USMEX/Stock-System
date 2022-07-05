@@ -1,0 +1,11 @@
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\bin\Debug\SSU.exe.config
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\bin\Debug\SSU.exe
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\bin\Debug\SSU.pdb
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\obj\Debug\SSU.csproj.AssemblyReference.cache
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\obj\Debug\SSU.csproj.SuggestedBindingRedirects.cache
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\obj\Debug\SSU.Properties.Resources.resources
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\obj\Debug\SSU.csproj.GenerateResource.cache
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\obj\Debug\SSU.csproj.CoreCompileInputs.cache
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\obj\Debug\SSU.exe
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\obj\Debug\SSU.pdb
+D:\itusm\OneDrive - USMEX NEARSHORE SOLUTIONS SA DE CV\USMEX\04 - Operaciones\01 - Ingenieria\01 - IT\99 - Repositorios\Stock-System\SSU\obj\Debug\SSU.frmLogin.resources
