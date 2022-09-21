@@ -5,5 +5,5 @@ urlpatterns = [
     # Redireccionamiento a app de items
  path('', views.itemLobby, name='itemHome'),
  path('list/', views.itemList, name='itemList'),
- path('item/<str:elementId>', views.itemDesc, name='itemDescription'),
+ path('list/item/<str:elementId>', views.itemDesc, name='itemDescription'),
  ]

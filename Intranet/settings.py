@@ -34,6 +34,7 @@ BASE_APPS = [
 ]
 # |-----| Local apps
 LOCAL_APPS = [
+    'apps.worker',
     'apps.warehouse.item',
 
 ]

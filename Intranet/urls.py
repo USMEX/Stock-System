@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     # Redireccionamiento a app de items
-    path('', lambda req: redirect('/items/')),
+    path('', include('apps.worker.urls')),
     path('admin/', admin.site.urls),
     path('items/', include('apps.warehouse.item.urls')),
 ]
