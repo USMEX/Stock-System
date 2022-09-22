@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'Intranet.wsgi.application'
 #         'OPTIONS': {'driver': 'ODBC Driver 17 for SQL Server', },
 #     }
 # }
-Comment to the default database configuration
+# Comment to the default database configuration
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
