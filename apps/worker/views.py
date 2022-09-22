@@ -5,8 +5,10 @@ from django.http import HttpResponse
 
 # Página principal del portal
 def homeDashboard(request):
-    return render(request, 'dashboard.html')
+    context = {'home': 'active'}
+    return render(request, 'dashboard.html', context)
 
 # Listado de usuarios registrados
 def workerList(request):
-    return render(request, '/worker/List.html')
+    context = {'workerList': 'active'}
+    return render(request, 'worker/list.html', context)
