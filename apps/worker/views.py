@@ -12,3 +12,18 @@ def homeDashboard(request):
 def workerList(request):
     context = {'workerList': 'active'}
     return render(request, 'worker/list.html', context)
+
+# Listado de usuarios registrados
+def workerProfile(request):
+    context = {'workerProfile': 'active'}
+    return render(request, 'worker/profile.html', context)
+
+# Listado de usuarios registrados
+def workerLogin(request):
+    context = {'workerLogin': 'active'}
+    return render(request, 'worker/login.html', context)
+
+# Listado de usuarios registrados
+def workerRegister(request):
+    context = {'workerRegister': 'active'}
+    return render(request, 'worker/register.html', context)
