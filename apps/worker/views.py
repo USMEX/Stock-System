@@ -8,7 +8,7 @@ from django.contrib.auth.models import Group
 from apps.worker.models import worker
 from .forms import *
 from django.contrib.auth.decorators import login_required
-from .decorators import user_auth
+from .decorators import user_auth, allowed_users
 
 
 # Página principal del portal
@@ -19,6 +19,7 @@ def homeDashboard(request):
 
 # Listado de usuarios registrados
 @login_required(login_url='workerLogin')
+@allowed_users(allowed_roles=['admin'])
 def workerList(request):
     context = {'workerList': 'active'}
     return render(request, 'worker/list.html', context)
