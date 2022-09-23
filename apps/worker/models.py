@@ -1,5 +1,5 @@
 from django.db import models
-from apps.equipo.models import equipo
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -25,8 +25,6 @@ def get_default_worker_image():
 
 # |-----| Models para workeradores
 class worker(models.Model):
-    workerUsername = models.CharField(
-        max_length=64, verbose_name=u"Username", null=False)
     workerNameFirst = models.CharField(
         max_length=64, verbose_name=u"Firstname", null=False)
     workerNameLast = models.CharField(
@@ -34,10 +32,10 @@ class worker(models.Model):
     workerNickname = models.CharField(
         max_length=64, verbose_name=u"Nickname", null=False)
     workerEmail = models.EmailField(
-        max_length=60, verbose_name=u"Email")
+        max_length=60, verbose_name=u"Email", unique=True)
     workerDateRegistered = models.DateField(auto_now_add=True)
     workerDateBirth = models.DateField(
-        verbose_name=u"BirthDate", null=False)
+        verbose_name=u"BirthDate", null=True)
 
     # Fotografía del trabajador
     workerPhoto = models.ImageField(max_length=255, 
@@ -46,10 +44,10 @@ class worker(models.Model):
         verbose_name=u"Upload a picture of you")
 
     # Referencia del usuario
-    user = models.OneToOneField(User, null=false, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "%s" % (self.workerUsername)
+        return "%s %s" % (self.workerNameLast, self.workerNameFirst)
     
     class Meta:
         ordering = ['workerNameLast']
