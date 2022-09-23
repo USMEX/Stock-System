@@ -7,29 +7,36 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 from apps.worker.models import worker
 from .forms import *
+from django.contrib.auth.decorators import login_required
+from .decorators import user_auth
 
 
 # Página principal del portal
+@login_required(login_url='workerLogin')
 def homeDashboard(request):
     context = {'home': 'active'}
     return render(request, 'dashboard.html', context)
 
 # Listado de usuarios registrados
+@login_required(login_url='workerLogin')
 def workerList(request):
     context = {'workerList': 'active'}
     return render(request, 'worker/list.html', context)
 
 # Listado de usuarios registrados
+@login_required(login_url='workerLogin')
 def workerProfile(request):
     context = {'workerProfile': 'active'}
     return render(request, 'worker/profile.html', context)
 
 # Listado de usuarios registrados
+@user_auth
 def workerLogin(request):
     context = {'workerLogin': 'active'}
     return render(request, 'worker/login.html', context)
 
 # Listado de usuarios registrados
+@user_auth
 def workerRegister(request):
     
     form = CreateUserForm()
