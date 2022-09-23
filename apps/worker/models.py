@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-import random
+from random import randint
 
 # Create your models here.
 
@@ -22,13 +22,7 @@ def get_worker_image_filepath(instance, filename):
     return 'worker/worker_%s/profile_picture.%s' % (instance.workerUsername, extension)
 
 def get_default_worker_image():
-    pictures = [
-        'worker_worker_image0.png',
-        'worker_worker_image1.png',
-        'worker_worker_image2.png',
-        'worker_worker_image3.png',
-        ]
-    return "worker/" + random.choice(pictures)
+    return "worker/worker_worker_image" + str(randint(0, 5)) + ".png"
 
 # |-----| Models para workeradores
 class worker(models.Model):
