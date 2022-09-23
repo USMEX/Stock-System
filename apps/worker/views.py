@@ -92,3 +92,9 @@ def workerRegister(request):
             )
     context = {'workerRegister': 'active', 'form': form}
     return render(request, 'worker/register.html', context)
+
+# |-----| |-----| |-----| CIERRE DE SESIÓN      |-----| |-----| |-----|
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
+def workerLogout(request):
+    logout(request)
+    return redirect('workerLogin')
