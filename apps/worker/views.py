@@ -11,32 +11,48 @@ from django.contrib.auth.decorators import login_required
 from .decorators import user_auth, allowed_users
 
 
-# Página principal del portal
+# |-----| |-----| |-----| DASHBOARD DE INICIO   |-----| |-----| |-----|
+# |-----| View que permite visualizar la página de inicio al    |-----| 
+# |-----| estar logueado correctamente.                         |-----|
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 @login_required(login_url='workerLogin')
 def homeDashboard(request):
     context = {'home': 'active'}
     return render(request, 'dashboard.html', context)
 
-# Listado de usuarios registrados
+# |-----| |-----| |-----| LISTA DE TRABAJADORES |-----| |-----| |-----|
+# |-----| Este apartado cuenta con la lista de trabajadores     |-----| 
+# |-----| registrados en el sistema, solo podrá visualizarse    |-----|
+# |-----| con permisos de administrador.                        |-----|
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 @login_required(login_url='workerLogin')
 @allowed_users(allowed_roles=['admin'])
 def workerList(request):
     context = {'workerList': 'active'}
     return render(request, 'worker/list.html', context)
 
-# Listado de usuarios registrados
+# |-----| |-----| |-----| PERFIL DEL USUARIO    |-----| |-----| |-----|
+# |-----| Permitirá la visualización de los perfiles de los     |-----| 
+# |-----| usuarios.                                             |-----|
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 @login_required(login_url='workerLogin')
 def workerProfile(request):
     context = {'workerProfile': 'active'}
     return render(request, 'worker/profile.html', context)
 
-# Listado de usuarios registrados
+# |-----| |-----| |-----| LOGIN DE USUARIO      |-----| |-----| |-----|
+# |-----| Página que permitirá el inicio de sesión del usuario. |-----|
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 @user_auth
 def workerLogin(request):
     context = {'workerLogin': 'active'}
     return render(request, 'worker/login.html', context)
 
-# Listado de usuarios registrados
+# |-----| |-----| |-----| FORMULARIO DE REGISTRO|-----| |-----| |-----|
+# |-----| Mediante este se permitirá el registro de nuevos      |-----| 
+# |-----| usuarios, tomando en cuenta que estarán asociados     |-----|
+# |-----| a una cuenta de django.contrib.                       |-----|
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 @user_auth
 def workerRegister(request):
     

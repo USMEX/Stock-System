@@ -3,10 +3,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-
-
 from .models import worker
 
+# |-----| |-----| |-----| FORMULARIO DE REGISTRO|-----| |-----| |-----|
+# |-----| Personalización del formulario registro de los        |-----| 
+# |-----| trabajadores, esto con fines estéticos.               |-----|
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 class CreateUserForm(UserCreationForm):
 	def __init__(self, *args,**kwargs):
 		super().__init__(*args, **kwargs)

@@ -13,6 +13,10 @@ def user_auth(view_func):
             return view_func(request, *args, *kwargs)
     return wrapper_func
 
+# |-----| |-----| |-----| PERMISOS DE USUARIO   |-----| |-----| |-----|
+# |-----| Decorador que permite la entrada a el virew solo si   |-----| 
+# |-----| cuenta con los permisos necesarios/                   |-----|
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 def allowed_users(allowed_roles=[]):
     def decorator(view_func):
         def wrapper_func(request, *args, **kwargs):
