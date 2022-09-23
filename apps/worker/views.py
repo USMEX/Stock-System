@@ -4,6 +4,7 @@ from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
+from django.contrib.auth.models import Group
 from apps.worker.models import worker
 from .forms import *
 
@@ -36,15 +37,18 @@ def workerRegister(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            username = form.cleaned_data.get('workerEmail')
+            username = form.cleaned_data.get('username')
+            email = username
+            first_name = form.cleaned_data.get('first_name')
+            last_name = form.cleaned_data.get('last_name')
             
-            group = Grou.object.get(name='worker')
+            group = Group.objects.get(name='worker')
             user.groups.add(group)
             worker.objects.create(
-                workerEmail =     user.email,
+                user = user,
+                workerEmail =     user.username,
                 workerNameFirst = user.first_name,
                 workerNameLast =  user.last_name,
-                workerDateReg =   user.date_joined,
             )
     context = {'workerRegister': 'active', 'form': form}
     return render(request, 'worker/register.html', context)

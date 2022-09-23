@@ -36,6 +36,7 @@ class worker(models.Model):
     workerDateRegistered = models.DateField(auto_now_add=True)
     workerDateBirth = models.DateField(
         verbose_name=u"BirthDate", null=True)
+    workerIsActive = models.BooleanField(default=True, verbose_name=u"Usuario activo")
 
     # Fotografía del trabajador
     workerPhoto = models.ImageField(max_length=255, 
