@@ -5,11 +5,14 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 from django.contrib.auth.models import Group
+from django.contrib.auth import authenticate, login, logout
 from apps.worker.models import worker
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from .decorators import user_auth, allowed_users
+from django.shortcuts import redirect
 
+from django.contrib import messages
 
 # |-----| |-----| |-----| DASHBOARD DE INICIO   |-----| |-----| |-----|
 # |-----| View que permite visualizar la página de inicio al    |-----| 
@@ -45,7 +48,20 @@ def workerProfile(request):
 # |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 @user_auth
 def workerLogin(request):
-    context = {'workerLogin': 'active'}
+    
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.info(request, 'Username OR password is incorrect')
+            
+    context = {}
     return render(request, 'worker/login.html', context)
 
 # |-----| |-----| |-----| FORMULARIO DE REGISTRO|-----| |-----| |-----|
