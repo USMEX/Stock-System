@@ -18,7 +18,7 @@ SECRET_KEY = config('SECRET_KEY')
 # Linked to .env variable
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['192.168.100.30']
+ALLOWED_HOSTS = ['192.168.100.30','localhost']
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
@@ -82,23 +82,23 @@ WSGI_APPLICATION = 'Intranet.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # Specify of our "links" to the configuration database connection.
-DATABASES = {
-    'default': {
-        'ENGINE': 'mssql',
-        'NAME': config('SQL_DB'),
-        'USER': config('SQL_USER'),
-        'PASSWORD': config('SQL_PASSWORD'),
-        'HOST': 'PW.AXOLOTLTEAM.COM' + config('SQL_INSTANCE'),
-        'OPTIONS': {'driver': 'ODBC Driver 17 for SQL Server', },
-    }
-}
-# Comment to the default database configuration
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'mssql',
+#         'NAME': config('SQL_DB'),
+#         'USER': config('SQL_USER'),
+#         'PASSWORD': config('SQL_PASSWORD'),
+#         'HOST': 'PW.AXOLOTLTEAM.COM' + config('SQL_INSTANCE'),
+#         'OPTIONS': {'driver': 'ODBC Driver 17 for SQL Server', },
 #     }
 # }
+# Comment to the default database configuration
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation

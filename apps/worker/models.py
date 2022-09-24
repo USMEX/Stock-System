@@ -2,21 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from random import randint
 
-# Create your models here.
+from colorfield.fields import ColorField
 
-# |-----| cIUDADES REGISTRADAS
-POSICIONES = [
-    ('QUQU', 'Quarterbacks'),
-    ('RURU', 'Running backs'),
-    ('WIWI', 'Wide receivers'),
-    ('TITI', 'Tight ends'),
-    ('DEDE', 'Defensive linemen'),
-    ('LILI', 'Linebackers'),
-    ('DEDE', 'Defensive backs'),
-    ('SPSP', 'Special teams'),
-    ('PRPR', 'Practice squad'),
-]
-# |-----| Método de búsqueda de fotos
+# |-----| |-----| |-----| METODOS PARA MODELS   |-----| |-----| |-----|
 def get_worker_image_filepath(instance, filename):
     filebase, extension = filename.split('.')
     return 'worker/worker_%s/profile_picture.%s' % (instance.workerNickname, extension)
@@ -24,16 +12,18 @@ def get_worker_image_filepath(instance, filename):
 def get_default_worker_image():
     return "worker/worker_worker_image" + str(randint(0, 5)) + ".png"
 
-# |-----| Models para workeradores
+# |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
+
+# |-----| |-----| |--| ELEMENTOS PARA TRABAJADORES |--| |-----| |-----|
 class worker(models.Model):
     workerNameFirst = models.CharField(
-        max_length=64, verbose_name=u"Firstname", null=False)
+        max_length=32, verbose_name=u"Firstname", null=False)
     workerNameLast = models.CharField(
-        max_length=64, verbose_name=u"Lastname", null=False)
+        max_length=32, verbose_name=u"Lastname", null=False)
     workerNickname = models.CharField(
-        max_length=64, verbose_name=u"Nickname", null=False)
+        max_length=32, verbose_name=u"Nickname", null=False)
     workerEmail = models.EmailField(
-        max_length=60, verbose_name=u"Email", unique=True)
+        max_length=32, verbose_name=u"Email", unique=True)
     workerDateRegistered = models.DateField(auto_now_add=True)
     workerDateBirth = models.DateField(
         verbose_name=u"BirthDate", null=True)
@@ -54,3 +44,51 @@ class worker(models.Model):
     class Meta:
         ordering = ['workerNameLast']
     
+# |-----| |-----| |--| ELEMENTOS PARA LOS DEPARTAMENTOS |-----| |-----|
+# Departamento
+class department(models.Model):
+    dptoNameLong = models.CharField(
+        max_length=32, verbose_name=u"Department name", null=False)
+    dptoNameShort = models.CharField(
+        max_length=8, verbose_name=u"Department code", null=False)
+    dptoEmail = models.EmailField(
+        max_length=32, verbose_name=u"Department email", unique=True)
+    dptoColor = ColorField(default='#1cc88a')
+    
+    def __str__(self):
+        return "%s - %s" % (self.dptoNameShort, self.dptoNameLong)
+    
+# Puestos de trabajo
+class jobTittle(models.Model):
+    jobtName = models.CharField(
+        max_length=32, verbose_name=u"Job tittle", null=False)
+    jobtEmail = models.EmailField(
+        max_length=32, verbose_name=u"Job email group", unique=True, null=True)
+    jobtSalary = models.DecimalField(
+        max_digits=11,  verbose_name=u"Job salary", decimal_places=2, null=False)
+    
+    # ForeignKey with deparment
+    jobtDepartment = models.ForeignKey(
+        department, 
+        on_delete=models.CASCADE, 
+        verbose_name=u"Department on charge", 
+        null=False)
+    
+    def __str__(self):
+        return "%s" % (self.jobtName)
+    
+# Asociación entre trabajador y un puesto de trabajo
+class job(models.Model):
+    jobWorker = models.ForeignKey(
+        worker, 
+        on_delete=models.CASCADE, 
+        verbose_name=u"Worker", 
+        null=False)
+    jobJobTittle = models.ForeignKey(
+        jobTittle,
+        on_delete=models.CASCADE, 
+        verbose_name=u"Job assignment", 
+        null=False)
+    
+    def __str__(self):
+        return "%s - %s" % (self.jobWorker, self.jobJobTittle)
