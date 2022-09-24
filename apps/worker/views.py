@@ -87,6 +87,7 @@ def workerRegister(request):
             worker.objects.create(
                 user = user,
                 workerEmail =     user.username,
+                workerNickname =  user.username,
                 workerNameFirst = user.first_name,
                 workerNameLast =  user.last_name,
             )

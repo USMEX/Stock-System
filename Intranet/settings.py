@@ -18,7 +18,7 @@ SECRET_KEY = config('SECRET_KEY')
 # Linked to .env variable
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.100.30']
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
