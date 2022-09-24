@@ -2,6 +2,9 @@
 static/pictures/items/*
 !static/pictures/items/default_item_image.png
 
+# Settings
+Intranet/settings.py
+
 # migrations
 apps/**/**/migrations/*
 !apps/**/**/migrations/__init__.py*
@@ -135,3 +138,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Intranet/settings.py

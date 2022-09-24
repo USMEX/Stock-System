@@ -91,24 +91,24 @@
                                         <div class="mb-3"><label class="form-label"
                                                 for="username"><strong>Username</strong></label><input
                                                 class="form-control" type="text" id="username" placeholder="user.name"
-                                                name="username" value="{{user}}"></div>
+                                                name="username" value="{{user.worker.workerNickname}}"></div>
                                     </div>
                                     <div class="col">
                                         <div class="mb-3"><label class="form-label" for="email"><strong>Email
                                                     Address</strong></label><input class="form-control" type="email"
-                                                id="email" placeholder="user@example.com" name="email"></div>
+                                                id="email" placeholder="user@example.com" name="email" value="{{user.worker.workerEmail}}"></div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3"><label class="form-label" for="first_name"><strong>First
                                                     Name</strong></label><input class="form-control" type="text"
-                                                id="first_name" placeholder="John" name="first_name"></div>
+                                                id="first_name" placeholder="John" name="first_name" value="{{user.worker.workerNameFirst}}"></div>
                                     </div>
                                     <div class="col">
                                         <div class="mb-3"><label class="form-label" for="last_name"><strong>Last
                                                     Name</strong></label><input class="form-control" type="text"
-                                                id="last_name" placeholder="Doe" name="last_name"></div>
+                                                id="last_name" placeholder="Doe" name="last_name" value="{{user.worker.workerNameLast}}"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save
