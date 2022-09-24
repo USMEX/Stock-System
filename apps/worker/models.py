@@ -19,7 +19,7 @@ POSICIONES = [
 # |-----| Método de búsqueda de fotos
 def get_worker_image_filepath(instance, filename):
     filebase, extension = filename.split('.')
-    return 'worker/worker_%s/profile_picture.%s' % (instance.workerUsername, extension)
+    return 'worker/worker_%s/profile_picture.%s' % (instance.workerNickname, extension)
 
 def get_default_worker_image():
     return "worker/worker_worker_image" + str(randint(0, 5)) + ".png"
