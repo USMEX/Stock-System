@@ -1,6 +1,5 @@
 # Pictures 
-static/pictures/items/*
-!static/pictures/items/default_item_image.png
+static/img/worker/*
 
 # Settings
 Intranet/settings.py
