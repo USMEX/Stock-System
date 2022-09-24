@@ -22,6 +22,13 @@
         {% include 'base/navbarL.html' %}
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
+                {% if messages %}
+                    {% for m in messages %}
+                        <script>
+                            MessageConfirm('Barf barf..', '{{m}}');
+                        </script>
+                    {% endfor %}
+                {% endif %}
                 {% include 'base/navbarU.html' %}
                 {% block content %}
                 {% endblock %}

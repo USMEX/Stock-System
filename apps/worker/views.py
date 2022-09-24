@@ -11,7 +11,6 @@ from .forms import *
 from django.contrib.auth.decorators import login_required
 from .decorators import user_auth, allowed_users
 from django.shortcuts import redirect
-
 from django.contrib import messages
 
 # |-----| |-----| |-----| DASHBOARD DE INICIO   |-----| |-----| |-----|
@@ -57,6 +56,8 @@ def workerLogin(request):
         
         if user is not None:
             login(request, user)
+            text = 'Welcome stranger'
+            messages.success(request, text)
             return redirect('home')
         else:
             messages.info(request, 'Username OR password is incorrect')
@@ -75,6 +76,9 @@ def workerRegister(request):
     form = CreateUserForm()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
+        
+        text = 'Please, sign in'
+        messages.success(request, text)
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
@@ -84,6 +88,7 @@ def workerRegister(request):
             
             group = Group.objects.get(name='worker')
             user.groups.add(group)
+            
             worker.objects.create(
                 user = user,
                 workerEmail =     user.username,
@@ -91,6 +96,7 @@ def workerRegister(request):
                 workerNameFirst = user.first_name,
                 workerNameLast =  user.last_name,
             )
+            
     context = {'workerRegister': 'active', 'form': form}
     return render(request, 'worker/register.html', context)
 

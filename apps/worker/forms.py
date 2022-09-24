@@ -15,16 +15,18 @@ class CreateUserForm(UserCreationForm):
 		self.fields['first_name'].widget.attrs.update({
 				'class' : "form-control form-control-user", 
 				'type' :"text", 
-				'id' :"exampleFirstName", 
+				'id' :"first_name", 
 				'placeholder' :"First Name", 
 				'name' :"first_name",
+				'required' :True,
 				})
 		self.fields['last_name'].widget.attrs.update({
 				'class' : "form-control form-control-user", 
 				'type' :"text", 
-				'id' :"exampleFirstName", 
+				'id' :"last_name", 
 				'placeholder' :"Last Name", 
 				'name' :"last_name",
+				'required' :True,
 				})
 		self.fields['username'].widget.attrs.update({
 				'class' : "form-control form-control-user", 
@@ -45,7 +47,7 @@ class CreateUserForm(UserCreationForm):
 				'class' : "form-control form-control-user", 
 				'type' :"password", 
 				'id' :"exampleRepeatPasswordInput", 
-				'placeholder' :"Repeat Password", 
+				'placeholder' :"Repeat Password again", 
 				'name' :"password2",
 				})
 	class Meta:

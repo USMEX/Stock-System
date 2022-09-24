@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="/static/css/styles.min.css">
+
+    <!-- Sweet alert 2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/static/js/sweetAlert2.js"></script>
+    <!-- Sweet alert 2 -->
 </head>
 
 <body class="bg-gradient-primary">
@@ -24,12 +29,21 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Account!</h4>
                             </div>
+                            {% if messages %}
+                                {% for m in messages %}
+                                    <script>
+                                        WorkerSignUpSuccess("{% url 'workerLogin' %}");
+                                    </script>
+                                {% endfor %}
+                            {% endif %}
                             <form method="POST" class="user">
                                 {% csrf_token %}
                                 <div class="row mb-3">
                                     {% if form.errors %}
                                         {% for key,value in form.errors.items %} 
-                                        <p>{{ value|escape }}</p>
+                                            <script>
+                                                MessageConfirm('Grr..', '{{ value }}');
+                                            </script>
                                         {% endfor %}
                                     {% endif %}
                                     <div class="col-sm-6 mb-3 mb-sm-0">{{form.first_name}}</div>
