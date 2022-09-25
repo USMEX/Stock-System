@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate, login, logout
-from apps.worker.models import worker
+from apps.worker.models import worker, job
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from .decorators import user_auth, allowed_users
@@ -39,7 +39,8 @@ def workerList(request):
 # |-----| |-----| |-----| |----| |----| |----|  |-----| |-----| |-----|
 @login_required(login_url='workerLogin')
 def workerProfile(request):
-    context = {'workerProfile': 'active'}
+    Job = job.objects.filter(jobWorker = request.user.worker.pk)
+    context = {'workerProfile': 'active', 'job': Job}
     return render(request, 'worker/profile.html', context)
 
 # |-----| |-----| |-----| LOGIN DE USUARIO      |-----| |-----| |-----|
