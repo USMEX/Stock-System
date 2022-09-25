@@ -56,7 +56,7 @@ class department(models.Model):
     dptoColor = ColorField(default='#1cc88a')
     
     def __str__(self):
-        return "%s - %s" % (self.dptoNameShort, self.dptoNameLong)
+        return "[%s] - %s" % (self.dptoNameShort, self.dptoNameLong)
     
 # Puestos de trabajo
 class jobTittle(models.Model):
@@ -75,7 +75,7 @@ class jobTittle(models.Model):
         null=False)
     
     def __str__(self):
-        return "%s" % (self.jobtName)
+        return "%s %s" % (self.jobtDepartment, self.jobtName)
     
 # Asociación entre trabajador y un puesto de trabajo
 class job(models.Model):

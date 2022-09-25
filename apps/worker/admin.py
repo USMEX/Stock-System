@@ -21,4 +21,4 @@ class jobTittleList(admin.ModelAdmin):
 # |-----| Visualización de los campos de la tabla de departamentos |-----| 
 @admin.register(job)
 class jobsList(admin.ModelAdmin):
-    list_display = ["jobWorker", "jobJobTittle"]
+    list_display = ["jobJobTittle", "jobWorker"]
