@@ -7,11 +7,12 @@
         <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-body text-center shadow">
-                    <img class="rounded-circle mb-3 mt-4"
+                    <img class="rounded-circle mb-3 mt-4" style="border: 1px solid #858796"
                         src="/static/img/{{user.worker.workerPhoto}}" width="160" height="160">
-                    <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
+                    <br>
                 </div>
             </div>
+            {% if hasJob %}
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="text-primary fw-bold m-0">My jobs</h6>
@@ -34,47 +35,12 @@
                     {% endfor %}
                 </div>
             </div>
+            {% endif %}
         </div>
         <div class="col-lg-8">
             <div class="row">
                 <div class="col">
                     <div class="card shadow mb-3">
-                        <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">User Settings</p>
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="row">
-                                    {% comment %} <div class="col">
-                                        <div class="mb-3"><label class="form-label"
-                                                for="username"><strong>Username</strong></label><input
-                                                class="form-control" type="text" id="username" placeholder="user.name"
-                                                name="username" value="{{user}}"></div>
-                                    </div> {% endcomment %}
-                                    <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="email"><strong>Email
-                                                    Address</strong></label><input class="form-control" type="email"
-                                                id="email" placeholder="user@example.com" name="email" value="{{user.worker.workerEmail}}"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>First
-                                                    Name</strong></label><input class="form-control" type="text"
-                                                id="first_name" placeholder="John" name="first_name" value="{{user.worker.workerNameFirst}}"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last
-                                                    Name</strong></label><input class="form-control" type="text"
-                                                id="last_name" placeholder="Doe" name="last_name" value="{{user.worker.workerNameLast}}"></div>
-                                    </div>
-                                </div>
-                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save
-                                        Settings</button></div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Contact Settings</p>
                         </div>
@@ -98,6 +64,44 @@
                                 </div>
                                 <div class="mb-3"><button class="btn btn-primary btn-sm"
                                         type="submit">Save&nbsp;Settings</button></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">User information</p>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="mb-3"><label class="form-label" for="email"><strong>
+                                            Profile picture
+                                        </strong> {{user.worker.workerPhoto}}</label>
+                                                <button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="email"><strong>Email
+                                                    Address</strong></label><input class="form-control" type="email"
+                                                id="email" placeholder="user@example.com" name="email" value="{{user.worker.workerEmail}}"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>First
+                                                    Name</strong></label><input class="form-control" type="text"
+                                                id="first_name" placeholder="John" name="first_name" value="{{user.worker.workerNameFirst}}"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last
+                                                    Name</strong></label><input class="form-control" type="text"
+                                                id="last_name" placeholder="Doe" name="last_name" value="{{user.worker.workerNameLast}}"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save
+                                        Settings</button></div>
                             </form>
                         </div>
                     </div>

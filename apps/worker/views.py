@@ -40,7 +40,10 @@ def workerList(request):
 @login_required(login_url='workerLogin')
 def workerProfile(request):
     Job = job.objects.filter(jobWorker = request.user.worker.pk)
-    context = {'workerProfile': 'active', 'job': Job}
+    HasJob = False
+    if job.objects.filter(jobWorker = request.user.worker.pk).count()>0:
+        HasJob = True
+    context = {'workerProfile': 'active', 'job': Job, 'hasJob': HasJob}
     return render(request, 'worker/profile.html', context)
 
 # |-----| |-----| |-----| LOGIN DE USUARIO      |-----| |-----| |-----|
