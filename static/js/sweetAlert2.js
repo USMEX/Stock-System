@@ -46,3 +46,12 @@ function WorkerSignUpSuccess(url) {
       }
   })
 }
+function LoginError(text){
+    Swal.fire({
+            "title":'Your user or password is not correct',
+            "text":text,
+            "icon":"warning",
+            "confirmButtonText":"Ok",
+            "confirmButtonColor":"#dc3545",
+        })
+    }

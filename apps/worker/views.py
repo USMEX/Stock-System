@@ -60,7 +60,7 @@ def workerLogin(request):
         
         if user is not None:
             login(request, user)
-            text = 'Welcome stranger'
+            text = 'Welcome back ' + request.user.worker.workerNameFirst
             messages.success(request, text)
             return redirect('home')
         else:
