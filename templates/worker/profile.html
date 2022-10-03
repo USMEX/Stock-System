@@ -8,15 +8,15 @@
                 <div class="card-header py-3"><strong>My profile</strong></div>
                 <div class="card-body">
                     <!-- My profile data -->
-                    <div class="row">
+                    <div class="row profile">
                         <div class="profilePicture">
                             <div class="row align-items-center">
-                                <div class="col">
-                                    <img class="rounded-circle mb-1 mt-1" style="border: 1px solid #858796"
+                                <div class="col col-lg-5">
+                                    <img class="rounded-circle mb-1 mt-1 userPhoto"
                                         src="/static/img/{{user.worker.workerPhoto}}" width="180" height="180">
                                 </div>
                                 <div class="col">
-                                    <div class="row mb-3 mt-3">
+                                    <div class="row mb-3 mt-3 userName-own">
                                         <span>
                                             {{user.worker.workerNameFirst}} {{user.worker.workerNameLast}}
                                         </span>
@@ -32,12 +32,76 @@
                                         {% if hasJob %}
                                         {% for Job in job %}
                                         <span>
-                                            [{{Job.jobJobTittle.jobtDepartment.dptoNameShort}}] -
+                                            <a href="{{Job.jobJobTittle.jobtDepartment.dptoNameShort}}">[{{Job.jobJobTittle.jobtDepartment.dptoNameShort}}]</a> -
                                             {{Job.jobJobTittle.jobtName}}
                                         </span>
                                         {% endfor %}
                                         {% endif %}
                                     </div>
+                                </div>
+                                <!-- Team members area -->
+
+                                <hr class="hr-Bold">
+                                <div class="team-members align-items-center">
+                                    <div>
+                                        <label class="profile-label form-label" for="city"><strong>My team
+                                                leaders</strong></label>
+                                    </div>
+                                    <!-- AUXILIAR -->
+                                    <div class="team-member shadow row">
+                                        <div class="col align-items-center">
+                                            <img class="rounded-circle mb-1 mt-1" style="border: 1px solid #858796"
+                                                src="/static/img/worker/worker_worker_image0.png" width="60"
+                                                height="60">
+                                        </div>
+                                        <div class="col team-member-name">
+                                            <span>
+                                                <strong class="userNames">Adolfito González</strong>
+                                            </span><br>
+                                            <span>
+                                                <a class="mailto-link" href="mailto:adolfito.gonzalez@usmex.mx">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z">
+                                                        </path>
+                                                    </svg>
+                                                </a>adolfo.gonzalez@usmex.mx
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- AUXILIAR -->
+                                    <!-- AUXILIAR -->
+                                    <div class="team-member shadow row">
+                                        <div class="col align-items-center">
+                                            <img class="rounded-circle mb-1 mt-1" style="border: 1px solid #858796"
+                                                src="/static/img/worker/worker_worker_image0.png" width="60"
+                                                height="60">
+                                        </div>
+                                        <div class="col team-member-name">
+                                            <span>
+                                                <strong class="userNames">Adolfito González</strong>
+                                            </span><br>
+                                            <span>
+                                                <a class="mailto-link" href="mailto:adolfito.gonzalez@usmex.mx">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z">
+                                                        </path>
+                                                    </svg>
+                                                </a>adolfo.gonzalez@usmex.mx
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- AUXILIAR -->
+                                    <!-- FIN Miembro -->
+                                </div>
+                                <!-- END Team members area -->
+                                <hr class="hr-Bold">
+                                <div class="row">
+                                    <label class="profile-label form-label" for="city"><strong>My team
+                                            leaders</strong></label>
                                 </div>
                             </div>
                         </div>
@@ -64,59 +128,51 @@
                             <div class="col">
                                 <div class="mb-3"><label class="form-label"
                                         for="country"><strong>Country</strong></label><input class="form-control"
-                                        type="text" id="country" placeholder="USA" name="country"></div>
+                                        type="text" id="country" value="USA" name="country"></div>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col"></div>
-                            <div class="col">
-                                <button class="btn btn-primary btn-center">Update personal information</button>
-                            </div>
-                            <div class="col"></div>
-                        </div>
-                    </form>
-                    <!-- ENDPersonal information data -->
+                        <!-- ENDPersonal information data -->
                 </div>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3"><strong>Contact information</strong></div>
                 <div class="card-body">
                     <!-- Contact information -->
-                    <form>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3"><label class="form-label" for="city"><strong>First
-                                            name</strong></label><input class="form-control" type="text" id="city"
-                                        placeholder="Los Angeles" name="city"></div>
-                            </div>
-                            <div class="col">
-                                <div class="mb-3"><label class="form-label" for="country"><strong>Last
-                                            name</strong></label><input class="form-control" type="text" id="country"
-                                        placeholder="USA" name="country"></div>
-                            </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3"><label class="form-label" for="city"><strong>First
+                                        name</strong></label><input class="form-control" type="text" id="city" placeholder="First name"
+                                    value="{{user.worker.workerNameFirst}}" name="city"></div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3"><label class="form-label" for="city"><strong>Work email
-                                            address</strong></label><input class="form-control" type="text" id="city"
-                                        placeholder="Los Angeles" name="city"></div>
-                            </div>
-                            <div class="col">
-                                <div class="mb-3"><label class="form-label" for="country"><strong>Contact email
-                                            address</strong></label><input class="form-control" type="text" id="country"
-                                        placeholder="USA" name="country"></div>
-                            </div>
+                        <div class="col">
+                            <div class="mb-3"><label class="form-label" for="country"><strong>Last
+                                        name</strong></label><input class="form-control" type="text" id="country" placeholder="Last name"
+                                    value="{{user.worker.workerNameLast}}" name="country"></div>
                         </div>
-                        <div class="mb-3">
-                            <div class="row">
-                                <div class="col"></div>
-                                <div class="col">
-                                    <button class="btn btn-primary input-block-level btn-center">Update contact information</button></div>
-                                <div class="col"></div></div>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3"><label class="form-label" for="city"><strong>Job assignation email
+                                        address</strong></label><input class="form-control" type="text" id="city" placeholder="Job assignation email address"
+                                    value="{% if hasJob %}{% for Job in job %}{{Job.jobJobTittle.jobtEmail}}{% endfor %}{% else %}No job{% endif %}"
+                                    name="country" disabled></div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3"><label class="form-label" for="country"><strong>Contact email
+                                        address</strong></label><input class="form-control" type="text" id="country" placeholder="Contact email address"
+                                    value="{{user.worker.workerEmail}}" name="city"></div>
+                        </div>
+                    </div>
                     </form>
                     <!-- END Contact information -->
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col btn-profile-cont">
+                        <button class="btn btn-primary input-block-level btn-profile">Update contact
+                            information</button>
+                    </div>
                 </div>
             </div>
         </div>
